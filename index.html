@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8"/>
+    <head>
+        <title>key + button </title>
+        <style>
+            body {
+                background-color: grey;
+            }
+            .button {
+                float: left;
+                clear: both;
+            }
+            button {
+                background-color: #000;
+                color: #fff;
+                border: 2px solid #fff;
+                padding: 5px 10px;
+              
+            }
+            .man_png {
+                position: absolute;
+                clear: both;
+                left: 47%;
+                top: 30%;
+                transition:1s;
+            }
+            .man_png img {
+                width: 100px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        
+     <section>
+    <div class="button">    
+        <button class="up_button" > Up </button>
+        <button class="left_button"> LEft</button>
+        <button class="right_button"> Right</button>
+        <button class="down_button"> Down</button>
+    </div>  
+    </section> 
+    <section>
+        <div class="man_png">
+        <img src="men.png"></img>
+        </div>
+         </section>  
+        <script>
+        
+        var men = document.querySelector('.man_png'); 
+        var up_button = document.querySelector('.up_button');
+        up_button.addEventListener('click', function() {
+            var up = men.offsetTop;
+            men.style.top = up - 150 + 'px';
+            men.style.transform = "rotate(0deg)"; 
+         });
+        var left_button = document.querySelector('.left_button');
+         left_button.addEventListener('click', function() {
+            var leftSide = men.offsetLeft;
+            men.style.left = leftSide - 150 + 'px';
+            men.style.transform = "rotate(-90deg)";
+         });
+        var right_button = document.querySelector('.right_button');
+        right_button.addEventListener('click', function() {
+            var rightSide = men.offsetLeft;
+            men.style.left = rightSide + 150 + 'px';
+            men.style.transform = "rotate(90deg)"; 
+         });
+         
+        var down_button = document.querySelector('.down_button');
+        down_button.addEventListener('click', function() {
+            var botton = men.offsetTop;
+            men.style.top = botton + 150 + 'px';
+            men.style.transform = "rotate(180deg)"; 
+         });
+         
+         window.addEventListener('keydown', function(e){
+                // console.log('keyCode', e.keyCode); 
+                if ( e.keyCode == 38 ) {
+                    var up = men.offsetTop;
+                    men.style.top = up - 130 + 'px';
+                    men.style.transform = "rotate(0deg)";
+                }
+                if ( e.keyCode == 39) {
+                    var rightSide = men.offsetLeft;
+                    men.style.left = rightSide + 130 + 'px';
+                     men.style.transform = "rotate(90deg)";
+                }
+                if ( e.keyCode == 37) {
+                    var leftSide = men.offsetLeft;
+                    men.style.left = leftSide - 130 + 'px';
+                     men.style.transform = "rotate(-90deg)";
+                }
+                if (e.keyCode == 40 ) {
+                    var botton = men.offsetTop;
+                    men.style.top = botton + 130 + 'px';
+                     men.style.transform = "rotate(180deg)";
+                }
+         });
+
+        </script>
+    </body>
+</html>
